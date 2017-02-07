@@ -14,10 +14,9 @@ public class ActivityB extends AppCompatActivity {
         setContentView(R.layout.activity_b);
         String AUTHORITY ="content://teamproject.a.just.stalkersbestfriend/stalkers/";
         Uri uri = Uri.parse(AUTHORITY);
-        Cursor c = null;
         String[] args = new String[1];
         args[0] = "2";
-        c = this.getContentResolver().query(uri,null,null,args,null); //uri,columns to return of each row,selection critiria, selection critiria(arguements) , sort order
+        Cursor c = this.getContentResolver().query(uri,null,null,args,null); //uri,columns to return of each row,selection critiria, selection critiria(arguements) , sort order
         TextView atextview = (TextView) findViewById(R.id.tV);
         if(c==null)return;
         System.out.println(c.getCount()+ " THIS IS THE COUNT");
@@ -28,7 +27,6 @@ public class ActivityB extends AppCompatActivity {
             } while (c.moveToNext());
         }catch (NullPointerException e){
             e.printStackTrace();
-
         }
         c.close();
     }

@@ -14,17 +14,17 @@ import static android.database.sqlite.SQLiteDatabase.CONFLICT_IGNORE;
  */
 
 public class JustaContentProvider extends ContentProvider {
-    DatabaseHelper myDBH;
+    DatabaseHelper myDBH;                                                                           //instantiate our DatabaseHelper
 
-    private static final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
-    private static final String AUTHORITY = "teamproject.a.just.stalkersbestfriend";
-    static{
+    private static final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);                  //initialize URI matcher
+    private static final String AUTHORITY = "teamproject.a.just.stalkersbestfriend";                //set the authority
+    static{                                                                                         //the URIS supported
         matcher.addURI(AUTHORITY,"stalkers",1);         //return all
         matcher.addURI(AUTHORITY,"Stalkers/#",2);       //return by ID
     };
 
     @Override
-    public boolean onCreate() {
+    public boolean onCreate() {                                                                     //onCreate instantiate our database helper
         myDBH = new DatabaseHelper(getContext());
         return false;
     }
@@ -34,11 +34,11 @@ public class JustaContentProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
        switch(matcher.match(uri)){
            case 1:
-               return myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,null,null,null,null,null );
+               return myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,null,null,null,null,null );  //if it matches the first Uri ,return the whole database
 
            case 2:
                String[] selArgs = new String[1];
-               selArgs[0] = uri.getLastPathSegment();
+               selArgs[0] = uri.getLastPathSegment();                                                               //if it matches the second Uri ,return the entry with id=selectArguements
                return myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,"_ID=?",selArgs,null,null,null);
            default:
        }
@@ -56,7 +56,7 @@ public class JustaContentProvider extends ContentProvider {
     public Uri insert(Uri uri, ContentValues values) {
         switch (matcher.match(uri)){
             case 1:
-                long id = myDBH.getWritableDatabase().insertWithOnConflict(DatabaseHelper.TABLE_NAME,null,values,CONFLICT_IGNORE);
+                long id = myDBH.getWritableDatabase().insertWithOnConflict(DatabaseHelper.TABLE_NAME,null,values,CONFLICT_IGNORE);  //insert into the db with ON conflict set to ignore
                 return Uri.parse(uri.toString()+"/"+id);
         }
         return null;

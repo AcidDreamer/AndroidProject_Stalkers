@@ -20,24 +20,29 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".ActivityB" />
 
         <service
             android:name=".getStalkersOnDemand_Service"
             android:exported="false" />
 
-        <activity android:name=".ActivityB" />
+        <service android:name=".getStalkersService"/>
+
+        <provider
+            android:name=".JustaContentProvider"
+            android:authorities="teamproject.a.just.stalkersbestfriend"
+            android:exported="true"
+            android:syncable="true" />
 
         <receiver
-            android:name=".JustABroadcastReceiver" >
+            android:name=".OnBootStartGetReceiver"
+            android:enabled="true"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
-        <provider
-            android:authorities="teamproject.a.just.stalkersbestfriend"
-            android:name=".JustaContentProvider"
-            android:exported="true"
-            android:syncable="true"/>
+        <receiver android:name=".getReceiver"/>
     </application>
 
 </manifest>
