@@ -34,14 +34,12 @@ public class JustaContentProvider extends ContentProvider {
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
        switch(matcher.match(uri)){
            case 1:
-               System.out.println(myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,null,null,null,null,null ));
                return myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,null,null,null,null,null );
 
            case 2:
                String[] selArgs = new String[1];
                selArgs[0] = uri.getLastPathSegment();
-               Cursor result = myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,"_ID=?",selArgs,null,null,null);
-               return result;
+               return myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,"_ID=?",selArgs,null,null,null);
            default:
        }
         return null;
@@ -73,36 +71,5 @@ public class JustaContentProvider extends ContentProvider {
     public int update(Uri uri, ContentValues values, String selection, String[] selectionArgs) {
         return 0;
     }
-    /*
-    private static final int stalkers_list = 1;
-    private static final int stalker_id = 2 ;
-    DatabaseHelper myDBH;
-    static final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);
-    static final Uri CONTENT_URI = Uri.parse(URL);
 
-    static UriMatcher buildUriMatcher(){
-        final String authority = "content://teamproject.a.just.stalkersbestfriend.JustaContentProvider";
-        matcher.addURI(authority,"stalkers",stalkers_list);                                         //returns the whole table
-        matcher.addURI(authority,"stalkers/#",stalker_id);                                          //returns date
-        matcher.addURI(authority,"stalkers/#/#",stalker_id);                                        //returns latitude and longtitude
-        return matcher;
-    }
-
-    @Override
-    public boolean onCreate() {
-        myDBH = new DatabaseHelper(getContext());
-        return true;
-    }
-
-    @Override
-    public String getType(Uri uri) {
-        final int match = matcher.match(uri);
-        switch (match){
-            case stalkers_list
-                return "team"
-            case stalker_id
-        }
-        return null;
-    }
-    */
 }
