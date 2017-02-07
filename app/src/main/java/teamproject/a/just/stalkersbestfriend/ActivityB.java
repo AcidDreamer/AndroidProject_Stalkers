@@ -12,23 +12,24 @@ public class ActivityB extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_b);
-        String AUTHORITY ="content://teamproject.a.just.stalkersbestfriend/stalkers";
+        String AUTHORITY ="content://teamproject.a.just.stalkersbestfriend/stalkers/";
         Uri uri = Uri.parse(AUTHORITY);
         Cursor c = null;
-        c = this.getContentResolver().query(uri,null,null,null,null,null);
+        String[] args = new String[1];
+        args[0] = "2";
+        c = this.getContentResolver().query(uri,null,null,args,null); //uri,columns to return of each row,selection critiria, selection critiria(arguements) , sort order
         TextView atextview = (TextView) findViewById(R.id.tV);
         if(c==null)return;
-
+        System.out.println(c.getCount()+ " THIS IS THE COUNT");
         try {
-            if (!c.moveToFirst()) {
-            }
+            c.moveToFirst();
             do {
-                atextview.append(c.getString(1));
+                atextview.append(c.getString(0));
             } while (c.moveToNext());
-            System.out.println(c.getCount() + " abcdefg");
         }catch (NullPointerException e){
             e.printStackTrace();
 
         }
+        c.close();
     }
 }
