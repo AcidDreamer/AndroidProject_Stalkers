@@ -40,7 +40,7 @@ public class getStalkersOnDemand_Service extends IntentService {
     @Override
     public void onDestroy() {                                                                       //When the user stops the service
         super.onDestroy();
-        Toast.makeText(this, "Stalker Stopped...", Toast.LENGTH_LONG).show();                       //He gets informed
+        Toast.makeText(this, "Stalker ended...", Toast.LENGTH_LONG).show();                       //He gets informed
     }
 
     protected void onHandleIntent(Intent intent) {
@@ -52,7 +52,7 @@ public class getStalkersOnDemand_Service extends IntentService {
             StringBuilder stringBuilder = new StringBuilder();                                  //Initializing a StringBuilder
             String line = null;                                                                 //Get an empty line
             while ((line = br.readLine()) != null) {                                            //While the line hasn't reach the end of the buffered reader readLine ,do staff,and move to the next
-                stringBuilder.append(line.toString() + "n");                                    //Append the line to our string builder
+                stringBuilder.append(line + "n");                                    //Append the line to our string builder
             }
             is.close();
             JSONArray stalkersJson = new JSONArray(stringBuilder.toString());                    //convert the string to json
@@ -71,11 +71,9 @@ public class getStalkersOnDemand_Service extends IntentService {
                 }
             }
 
-        } catch (MalformedURLException e) {
+        } catch (MalformedURLException | JSONException e) {
             e.printStackTrace();
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (JSONException e) {
             e.printStackTrace();
         }
     }
