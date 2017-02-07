@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_home_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="teamproject.a.just.stalkersbestfriend.HomePage">
+
+    <Button
+        android:text="Get your stalkers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:onClick="getStalkers"
+        android:id="@+id/getStalkers" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Fuck you obama!"
+        android:id="@+id/tsipras"
+        android:layout_below="@+id/getStalkers"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="103dp"
+        android:layout_marginTop="47dp"
+        android:visibility="visible"/>
+
+    <Button
+        android:text="Swap activity"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="changeActivity"
+        android:id="@+id/swapActivity"
+        android:layout_below="@+id/tsipras"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="83dp" />
+</RelativeLayout>
