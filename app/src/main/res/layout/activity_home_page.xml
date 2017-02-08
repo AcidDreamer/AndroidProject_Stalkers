@@ -11,32 +11,33 @@
     tools:context="teamproject.a.just.stalkersbestfriend.HomePage">
 
     <Button
-        android:text="Get your stalkers"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="Start getting stalkers"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/startGetService"
         android:layout_alignParentTop="true"
-        android:layout_alignParentEnd="true"
-        android:onClick="getStalkers"
-        android:id="@+id/getStalkers" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Fuck you obama!"
-        android:id="@+id/tsipras"
-        android:layout_below="@+id/getStalkers"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="103dp"
-        android:layout_marginTop="47dp"
-        android:visibility="visible"/>
+        android:layout_alignStart="@+id/getStalkers"
+        android:layout_marginTop="31dp"
+        android:onClick="startGetService" />
 
     <Button
-        android:text="Swap activity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:text="Get your stalkers now!"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:onClick="getStalkers"
+        android:id="@+id/getStalkers"
+        android:layout_below="@+id/startGetService"
+        android:layout_alignStart="@+id/swapActivity"
+        android:layout_marginTop="11dp" />
+
+    <Button
+        android:text="Search for stalkers"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
         android:onClick="changeActivity"
         android:id="@+id/swapActivity"
-        android:layout_below="@+id/tsipras"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="83dp" />
+        android:layout_marginTop="11dp"
+        android:layout_below="@+id/getStalkers"
+        android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
