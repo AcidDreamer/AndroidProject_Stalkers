@@ -87,7 +87,7 @@ public class ActivityB extends Activity {
                         Intent GmapsIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                         /*set the class*/
                         GmapsIntent.setClassName("com.google.android.apps.maps", "com.google.android.maps.MapsActivity");
-                        //Try to open it with google maps
+                        //postStalkerService to open it with google maps
                         try{
                             System.out.println("Sending intent to gmaps");
                             startActivity(GmapsIntent);
