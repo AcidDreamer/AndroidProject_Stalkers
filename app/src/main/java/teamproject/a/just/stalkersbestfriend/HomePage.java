@@ -21,11 +21,16 @@ public class HomePage extends Activity {
     }
 
     public void getStalkers(View v) {
-        Intent i = new Intent(this,getStalkersOnDemand_Service.class);
+        Intent i = new Intent(this,getStalkersService.class);
         startService(i);
     }
     public void changeActivity(View v) {
         Intent i = new Intent(this,ActivityB.class);
         startActivity(i);
+        /*This lines were used for debugging
+        Intent i = new Intent(this,OnBootStartGetReceiver.class);
+        sendBroadcast(i);
+        */
+
     }
 }

@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">StalkersBestFriend</string>
+    <string name="selectDropDown">Search By</string>
+    <string-array name="selectDropDown">
+        <item>_ID</item>
+        <item>_USERID</item>
+    </string-array>
+
 </resources>

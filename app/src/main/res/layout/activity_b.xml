@@ -10,21 +10,59 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="teamproject.a.just.stalkersbestfriend.ActivityB">
 
-    <TextView
-        android:text="KAPPA"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginStart="92dp"
-        android:layout_marginTop="22dp"
-        android:id="@+id/textView" />
 
     <TextView
-        android:text="TextView"
+       android:layout_width="200dp"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:id="@+id/stalkersInfo"
+            android:layout_below="@+id/getStalker"
+            android:layout_alignStart="@+id/getStalker"
+            android:layout_alignEnd="@+id/getStalker"
+            android:maxLines = "500"
+            android:scrollbars = "vertical"
+        />
+
+    <TextView
+        android:text="Find a specific stalker"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/textView"
-        android:layout_marginTop="58dp"
-        android:id="@+id/tV" />
+        android:id="@+id/Info_TextVIew"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/selectDropDown"
+        android:layout_marginTop="25dp"
+        android:entries="@array/selectDropDown"
+        android:layout_below="@+id/Info_TextVIew"
+        android:layout_centerHorizontal="true"
+        android:textSize = "20sp"
+        />
+
+    <EditText
+        android:layout_width="200dp"
+        android:inputType="textPersonName"
+        android:text=""
+        android:hint="Enter the id or userid "
+        android:ems="10"
+        android:layout_marginTop="24dp"
+        android:id="@+id/searchBy"
+        android:layout_height="50dp"
+        android:layout_below="@+id/selectDropDown"
+        android:layout_alignStart="@+id/selectDropDown" />
+
+    <Button
+        android:text="Get the bastard!"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:id="@+id/getStalker"
+        android:onClick="getSpecificStalker"
+        android:layout_marginTop="23dp"
+        android:layout_below="@+id/searchBy"
+        android:layout_alignStart="@+id/searchBy" />
+    />
+
 </RelativeLayout>

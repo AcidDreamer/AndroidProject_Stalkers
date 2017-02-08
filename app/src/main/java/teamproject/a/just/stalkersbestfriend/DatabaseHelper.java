@@ -20,11 +20,11 @@ import static android.database.sqlite.SQLiteDatabase.CONFLICT_REPLACE;
 public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "stalker.db";
     public static final String TABLE_NAME = "stalkers_table";
-    private static final String col0 = "_id";
-    private static final String col1 = "_userid";
-    private static final String col2 = "_longitude";
-    private static final String col3 = "_latitude";
-    private static final String col4 = "_dt";
+    public static final String col0 = "_id";
+    public static final String col1 = "_userid";
+    public static final String col2 = "_longitude";
+    public static final String col3 = "_latitude";
+    public static final String col4 = "_dt";
 
 
     public DatabaseHelper(Context context) {

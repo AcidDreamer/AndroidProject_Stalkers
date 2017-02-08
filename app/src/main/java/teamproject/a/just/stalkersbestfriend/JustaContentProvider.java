@@ -19,8 +19,7 @@ public class JustaContentProvider extends ContentProvider {
     private static final UriMatcher matcher = new UriMatcher(UriMatcher.NO_MATCH);                  //initialize URI matcher
     private static final String AUTHORITY = "teamproject.a.just.stalkersbestfriend";                //set the authority
     static{                                                                                         //the URIS supported
-        matcher.addURI(AUTHORITY,"stalkers",1);         //return all
-        matcher.addURI(AUTHORITY,"Stalkers/#",2);       //return by ID
+        matcher.addURI(AUTHORITY,"stalkers",1);         //return all ,allow queries bellow
     };
 
     @Override
@@ -32,16 +31,11 @@ public class JustaContentProvider extends ContentProvider {
     @Nullable
     @Override
     public Cursor query(Uri uri, String[] projection, String selection, String[] selectionArgs, String sortOrder) {
-       switch(matcher.match(uri)){
+        switch(matcher.match(uri)){
            case 1:
-               return myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,null,null,null,null,null );  //if it matches the first Uri ,return the whole database
-
-           case 2:
-               String[] selArgs = new String[1];
-               selArgs[0] = uri.getLastPathSegment();                                                               //if it matches the second Uri ,return the entry with id=selectArguements
-               return myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,null,"_ID=?",selArgs,null,null,null);
-           default:
-       }
+               return myDBH.getReadableDatabase().query(DatabaseHelper.TABLE_NAME,projection,selection,selectionArgs,null,null,null );  //if it matches the first Uri ,return the whole database
+            default:
+        }
         return null;
     }
 

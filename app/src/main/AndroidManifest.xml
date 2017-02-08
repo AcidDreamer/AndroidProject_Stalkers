@@ -23,10 +23,8 @@
         <activity android:name=".ActivityB" />
 
         <service
-            android:name=".getStalkersOnDemand_Service"
+            android:name=".getStalkersService"
             android:exported="false" />
-
-        <service android:name=".getStalkersService"/>
 
         <provider
             android:name=".JustaContentProvider"

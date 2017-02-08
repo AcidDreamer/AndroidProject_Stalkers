@@ -10,7 +10,7 @@ public class getReceiver extends BroadcastReceiver {
     //This receiver gets fired off by the OnBootStartGetReceiver
     @Override
     public void onReceive(Context context, Intent intent) {
-        Intent serviceIntent = new Intent(context, getStalkersOnDemand_Service.class);              //create the intent giving {context ,the class to start}
+        Intent serviceIntent = new Intent(context, getStalkersService.class);              //create the intent giving {context ,the class to start}
         context.startService(serviceIntent);                                                        //start the service
     }
 }
