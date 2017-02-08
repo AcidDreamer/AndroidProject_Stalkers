@@ -77,6 +77,7 @@ public class getStalkersService extends IntentService {
             e.printStackTrace();
         }
     }
+}
 
     /* PREVIOUS IMPLIMENTATION WITH SQLITE , WE DO NOT DESTROY THE PAST ,WE LEARN FROM IT
     @Override
@@ -113,4 +114,3 @@ public class getStalkersService extends IntentService {
         }
     }
     */
-}
