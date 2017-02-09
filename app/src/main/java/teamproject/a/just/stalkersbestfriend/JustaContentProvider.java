@@ -21,7 +21,6 @@ public class JustaContentProvider extends ContentProvider {
     static{                                                                                         //the URIS supported
         matcher.addURI(AUTHORITY,"stalkers",1);         //return all ,allow queries bellow
     };
-
     @Override
     public boolean onCreate() {                                                                     //onCreate instantiate our database helper
         myDBH = new DatabaseHelper(getContext());

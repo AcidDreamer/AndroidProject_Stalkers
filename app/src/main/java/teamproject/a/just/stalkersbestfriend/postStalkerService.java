@@ -19,8 +19,6 @@ import java.net.URL;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 
-import static android.content.ContentValues.TAG;
-
 public class postStalkerService extends Service {
     private LocationManager mLocationManager = null;
     //How often the gps will check , in ms
@@ -87,9 +85,9 @@ public class postStalkerService extends Service {
         try {
             mLocationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, LOCATION_INTERVAL, LOCATION_DISTANCE, mLocationListener);
         } catch (java.lang.SecurityException ex) {
-            Log.i(TAG, "fail to request location update, ignore", ex);
+            ex.printStackTrace();
         } catch (IllegalArgumentException ex) {
-            Log.d(TAG, "gps provider does not exist " + ex.getMessage());
+            ex.printStackTrace();
         }
     }
 

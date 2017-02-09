@@ -42,10 +42,10 @@
         </receiver>
         <receiver android:name=".getReceiver" />
         <receiver android:name=".postReceiver" />
+
         <receiver android:name=".GpsLocationReceiver">
             <intent-filter>
                 <action android:name="android.location.PROVIDERS_CHANGED" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </receiver>
